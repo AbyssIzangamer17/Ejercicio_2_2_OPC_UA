@@ -1,34 +1,16 @@
-# 🔌 Ejercicio 2.2: Ecosistema OPC-UA Industrial
-### Comunicación de Datos Virtuales mediante Arquitectura Cliente-Servidor
+# 📡 Ejercicio 2.2: OPC-UA SCADA Monitor
+### Comunicación Industrial Cliente-Servidor con Visualización HMI
+
+Implementación de un ecosistema OPC-UA para la comunicación entre máquinas, visualizado mediante una interfaz SCADA moderna de alta fidelidad.
 
 ## 🚀 Inicio Rápido
+Inicia la monitorización visual:
+👉 **[Abrir SCADA HMI](scada_visual.html)**
 
-1. **Clonar**:
-   ```bash
-   git clone https://github.com/AbyssIzangamer17/Ejercicio_2_2_OPC_UA.git
-   cd Ejercicio_2_2_OPC_UA
-   ```
-
-2. **Dependencias**:
-   ```powershell
-   pip install asyncua
-   ```
-
-## 📊 Visualización de Resultados
-
-Para ver el sistema en funcionamiento, usa dos terminales:
-
-1.  **Terminal 1 (Ejecutar Servidor)**:
-    ```powershell
-    python server_opcua.py
-    ```
-    *Verás:* "Temperatura: 20.xx | Presión: 1.xx" actualizándose cada 2 seg.
-
-2.  **Terminal 2 (Ejecutar Cliente)**:
-    ```powershell
-    python client_opcua.py
-    ```
-    *Verás:* El cliente leyendo esos mismos datos y lanzando **"⚠️ ALERTA"** si la temperatura supera los 21.5°C.
+## 📋 Especificaciones
+- **Investigación**: Análisis del protocolo OPC-UA y su importancia en la interoperabilidad industrial.
+- **Dades Virtuals**: Simulación de variables de Temperatura y Presión desde un servidor virtualizado.
+- **Suscripción**: El cliente HMI recibe actualizaciones instantáneas ante cambios en los nodos del servidor.
 
 ## 👤 Autor
 **Izan Urios** - 3R de Automatización y Robótica Industrial.

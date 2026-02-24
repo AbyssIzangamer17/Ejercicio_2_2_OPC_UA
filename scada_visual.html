@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SCADA Industrial HMI v5.0 - Ecosistema Izan Urios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --panel: #161625;
+            --accent: #00f2ff;
+            --warn: #ff3e3e;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .main-panel {
+            background: var(--panel);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            position: relative;
+        }
+
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gauge-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .gauge-box {
+            text-align: center;
+        }
+
+        .value {
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .log-v {
+            background: #000;
+            height: 300px;
+            border-radius: 12px;
+            padding: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #4ade80;
+            overflow-y: auto;
+            border: 1px solid #333;
+        }
+
+        .status-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .alert {
+            background: var(--warn);
+            box-shadow: 0 0 15px var(--warn);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            background: linear-gradient(to right, #00f2ff, #7d2ae8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="main-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>OPC-UA Real-Time SCADA</h1>
+                <div><span class="status-light" id="status"></span> <span
+                        style="font-size: 0.8rem; color: #888; margin-left: 5px;">SERVER CONNECTED [PORT: 4841]</span>
+                </div>
+            </div>
+
+            <div class="gauge-container">
+                <div class="gauge-box">
+                    <div class="label">Temperatura Reactor</div>
+                    <div class="value" id="t-val">22.4°C</div>
+                    <div id="t-bar"
+                        style="width: 100%; height: 6px; background: #333; border-radius: 3px; margin-top: 10px;">
+                        <div id="t-progress"
+                            style="width: 45%; height: 100%; background: var(--accent); border-radius: 3px; transition: 0.5s;">
+                        </div>
+                    </div>
+                </div>
+                <div class="gauge-box">
+                    <div class="label">Presión Circuito</div>
+                    <div class="value" id="p-val">1.02 <span style="font-size: 1.5rem;">bar</span></div>
+                    <div id="p-bar"
+                        style="width: 100%; height: 6px; background: #333; border-radius: 3px; margin-top: 10px;">
+                        <div id="p-progress"
+                            style="width: 51%; height: 100%; background: #a855f7; border-radius: 3px; transition: 0.5s;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 15px;">
+                <h3 style="margin-top: 0;">Planteamiento Tecnológico</h3>
+                <p style="color: #999; font-size: 0.9rem;">Este sistema simula una arquitectura cliente-servidor real.
+                    El servidor (Node.js/Python) emite variables industriales mediante el espacio de nombres de Izan
+                    Urios, y el cliente HMI procesa las suscripciones en tiempo real para visualización preventiva.</p>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div
+                style="background: var(--panel); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.05);">
+                <h2 style="font-size: 1rem; margin-top: 0;">EVENT LOG</h2>
+                <div class="log-v" id="logs">
+                    [SYSTEM] Client started...<br>
+                    [SYSTEM] Syncing with UA-Server...<br>
+                    [SYSTEM] NodeId ns=2;i=10 (Temp) subscribed.<br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function update() {
+            const t = (20 + (Math.random() * 8)).toFixed(2);
+            const p = (0.8 + (Math.random() * 0.6)).toFixed(2);
+            const logs = document.getElementById('logs');
+            const status = document.getElementById('status');
+
+            document.getElementById('t-val').innerText = t + '°C';
+            document.getElementById('p-val').innerText = p + ' bar';
+            document.getElementById('t-progress').style.width = ((t / 35) * 100) + '%';
+            document.getElementById('p-progress').style.width = ((p / 2) * 100) + '%';
+
+            if (t > 26) {
+                logs.innerHTML += `<div style="color: #ff3e3e;">[${new Date().toLocaleTimeString()}] ALERTA: Temperatura fuera de rango en ns=2;i=10</div>`;
+                status.className = "status-light alert";
+            } else {
+                status.className = "status-light";
+            }
+            logs.scrollTop = logs.scrollHeight;
+        }
+        setInterval(update, 2000);
+    </script>
+</body>
+
+</html>
