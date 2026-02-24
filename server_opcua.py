@@ -6,7 +6,7 @@ async def main():
     # Configuración del servidor
     server = Server()
     await server.init()
-    server.set_endpoint("opc.tcp://0.0.0.0:4840/freeopcua/server/")
+    server.set_endpoint("opc.tcp://0.0.0.0:4841/freeopcua/server/")
     
     # Configurar el espacio de nombres
     uri = "http://izan.urios.industrial"

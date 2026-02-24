@@ -2,7 +2,7 @@ import asyncio
 from asyncua import Client
 
 async def main():
-    url = "opc.tcp://localhost:4840/freeopcua/server/"
+    url = "opc.tcp://localhost:4841/freeopcua/server/"
     async with Client(url=url) as client:
         # El espacio de nombres debe coincidir con el del servidor
         uri = "http://izan.urios.industrial"
