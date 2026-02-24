@@ -3,19 +3,26 @@
 
 Implementación de un sistema de comunicación interoperable basado en el estándar OPC-UA, permitiendo la monitorización en tiempo real de sensores virtuales.
 
-## 🏗️ Arquitectura
-1.  **Servidor (`server_opcua.py`)**: Emite datos de temperatura y presión aleatorios en un bus TCP seguro.
-2.  **Cliente (`client_opcua.py`)**: Se suscribe a los cambios del servidor y genera alertas de seguridad.
+## 🚀 Inicio Rápido
 
-## 🚀 Instrucciones de Uso
-1. Iniciar el servidor:
-   ```powershell
-   python server_opcua.py
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/AbyssIzangamer17/Ejercicio_2_2_OPC_UA.git
+   cd Ejercicio_2_2_OPC_UA
    ```
-2. Iniciar el cliente en otra terminal:
+
+2. **Instalar Dependencias**:
    ```powershell
-   python client_opcua.py
+   pip install asyncua
    ```
+
+3. **Ejecución**:
+   *   **Terminal 1 (Servidor)**: `python server_opcua.py`
+   *   **Terminal 2 (Cliente)**: `python client_opcua.py`
+
+## 🏗️ Arquitectura
+*   **Servidor**: Emite datos de temperatura y presión.
+*   **Cliente**: Procesa los datos y genera alertas de seguridad.
 
 ## 👤 Autor
 **Izan Urios** - 3R de Automatización y Robótica Industrial.
