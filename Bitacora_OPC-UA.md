@@ -10,6 +10,17 @@ El proyecto consiste en crear un ecosistema OPC-UA completo con servidor Python,
 
 ---
 
+### Prompt de Origen
+
+**Fuente:** PDF de Instrucciones del Ejercicio (Captura 2026-02-24)
+
+**Prompt original:**
+> "Exercici 2.2. OPC-UA. Investigar sobre comunicació client-servidor mitjançant OPC-UA."
+
+Este prompt establece la investigación sobre comunicación cliente-servidor mediante OPC-UA como objetivo del ejercicio.
+
+---
+
 ### Prompts Utilizados
 
 #### Prompt #1
