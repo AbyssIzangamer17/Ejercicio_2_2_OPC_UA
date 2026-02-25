@@ -10,7 +10,24 @@ El proyecto consiste en crear un ecosistema OPC-UA completo con servidor Python,
 
 ---
 
-### Prompt de Origen
+### Prompt de Origen (Contexto General)
+
+**Fuente:** Conversación inicial del proyecto - Antigravity
+
+**Prompt principal del proyecto:**
+> "Usa la skill @find-skills para explorar tu ecosistema de 60.000 herramientas y seleccionar, en cada paso, la habilidad más avanzada y adecuada para cumplir este flujo de trabajo:
+> Extracción Multimodal: Busca y ejecuta la mejor herramienta de OCR y visión artificial para analizar la imagen/PDF dentro de la carpeta 'PDF DE EJERCICIOS' y extraer las instrucciones de texto.
+> Deducción de Objetivos: Si el texto extraído es impreciso o incompleto, busca una skill de agentes autónomos o planificación estratégica capaz de comprender el contexto, deducir el objetivo final del trabajo y 'apañárselas' de forma independiente para descomponer la meta en tareas ejecutables.
+> Documentación Académica: Localiza la skill de creación de documentos más robusta que garantice compatibilidad total con LibreOffice. El documento final debe seguir un estilo académico riguroso.
+> Estilización y Pie de Página: Identifica una herramienta de diseño de temas o estilización para configurar un pie de página obligatorio con el texto: 'Documento realizado por Izan Urios de 3R de Automatización y Robótica industrial'. Es indispensable que este pie de página incluya un borde superior nítido que lo separe visualmente del cuerpo del documento.
+> Ejecuta todo el proceso de forma autónoma, priorizando la precisión técnica y el rigor en el formato final.
+> Ve poco a poco y ve diferenciando los ejercicios de forma estructurada y organizada. Haz una carpeta por cada uno y trabaja adecuadamente siendo ordenado."
+
+**Interpretación:** Este prompt establece el flujo de trabajo completo del proyecto. Se buscaba utilizar el ecosistema de habilidades de IA para procesar las instrucciones del PDF y generar una solución organizada y profesional para cada ejercicio.
+
+---
+
+### Prompt de Origen (Ejercicio Específico)
 
 **Fuente:** PDF de Instrucciones del Ejercicio (Captura 2026-02-24)
 
