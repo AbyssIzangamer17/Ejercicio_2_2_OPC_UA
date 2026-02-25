@@ -14,10 +14,29 @@ El proyecto consiste en crear un ecosistema OPC-UA completo con servidor Python,
 
 **Fuente:** PDF de Instrucciones del Ejercicio (Captura 2026-02-24)
 
-**Prompt original:**
+**Contexto del ejercicio:**
+El Ejercicio 2.2 forma parte del bloque "Habilidades del Ecosistema IA" del módulo. Este ejercicio se centra en la comunicación industrial, un pilar fundamental de la automatización moderna.
+
+**Prompt original extraído del PDF:**
 > "Exercici 2.2. OPC-UA. Investigar sobre comunicació client-servidor mitjançant OPC-UA."
 
-Este prompt establece la investigación sobre comunicación cliente-servidor mediante OPC-UA como objetivo del ejercicio.
+**Interpretación y desarrollo:**
+Este prompt establece como objetivo la investigación sobre comunicación cliente-servidor mediante OPC-UA (Open Platform Communications Unified Architecture). OPC-UA es el estándar de comunicación industrial más robusto y versátil de la actualidad, utilizado en:
+
+- Comunicación PLC-PLC
+- Conexión SCADA-HMI
+- Integración con sistemas MES/ERP
+- Comunicación máquina-a-máquina (M2M)
+- IoT industrial
+
+La investigación debe cubrir:
+- Fundamentos de OPC-UA (modelo de información, servicios, seguridad)
+- Diferencias con OPC Classic (DA)
+- Arquitectura cliente-servidor y publisher-subscriber
+- Implementaciones populares (UaExpert, Prosys, open62541, asyncua)
+- Casos de uso en la industria
+
+**Nota del desarrollo:** El sistema final implementa un ecosistema completo con servidor Python, cliente Python y HMI web visual que permite monitorizar variables industriales en tiempo real y controlar la simulación.
 
 ---
 
